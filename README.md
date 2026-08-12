@@ -12,18 +12,7 @@ A portfolio-ready distributed URL shortener built with FastAPI, PostgreSQL, Redi
 
 ## Architecture
 
-```text
-Client
-  |
-  v
-Nginx Load Balancer
-  |
-  +-------> FastAPI api1 ----+
-  |                          |
-  +-------> FastAPI api2 ----+----> PostgreSQL
-                             |
-                             +----> Redis
-```
+![LinkFlux system architecture](docs/architecture-diagram.png)
 
 ## Project screenshots
 

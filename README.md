@@ -1,6 +1,6 @@
 # Distributed URL Shortener
 
-A portfolio-ready distributed URL shortener built with FastAPI, PostgreSQL, Redis, Nginx, Docker Compose, JWT authentication, analytics, caching, health checks, and multiple API instances.
+A portfolio-ready distributed URL shortener built with FastAPI, PostgreSQL, Redis, Nginx, Docker Compose, JWT authentication, analytics, caching, health checks, and multiple API instances. It includes a responsive React interface for account access, link creation, copying, analytics, deletion, and live infrastructure status.
 
 ## Architecture
 
@@ -33,6 +33,7 @@ Nginx Load Balancer
 
 ## Features
 
+- Responsive React frontend and link-management dashboard
 - Register/login with JWT
 - Password hashing with Argon2
 - Create short URLs

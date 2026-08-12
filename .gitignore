@@ -5,3 +5,5 @@ __pycache__/
 *.pyc
 .coverage
 htmlcov/
+frontend/node_modules/
+frontend/dist/

@@ -84,6 +84,12 @@ services:
         condition: service_healthy
       api2:
         condition: service_healthy
+      frontend:
+        condition: service_healthy
+    networks: [urlnet]
+
+  frontend:
+    build: ./frontend
     networks: [urlnet]
 
   prometheus:

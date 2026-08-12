@@ -1,4 +1,4 @@
-# LinkFlux — Distributed URL Shortener
+# Distributed URL Shortener
 
 LinkFlux creates compact links, redirects users through a load-balanced API,
 tracks click analytics, and remains available when its cache is unavailable.
@@ -353,36 +353,6 @@ Limits are shared by both API replicas through Redis:
 Configure them with `AUTH_RATE_LIMIT_PER_MINUTE`,
 `WRITE_RATE_LIMIT_PER_MINUTE`, and `REDIRECT_RATE_LIMIT_PER_MINUTE`.
 
-## Portfolio demo sequence
-
-1. Open LinkFlux and register or sign in.
-2. Create and copy a short link.
-3. Open the short link and show the redirect.
-4. Refresh My Links and show the click count.
-5. Repeatedly request `/health/live` and inspect `X-API-Instance` to demonstrate
-   traffic reaching both replicas.
-6. Open Grafana and show request rate and latency.
-7. Stop Redis with `docker compose stop redis`.
-8. Show `degraded` readiness and a working PostgreSQL-backed redirect.
-9. Restart Redis with `docker compose start redis`.
-
-## Design decisions
-
-- **PostgreSQL as source of truth:** relational constraints protect ownership,
-  uniqueness, and durable click data.
-- **Redis as acceleration layer:** cached redirects and shared counters improve
-  latency without making Redis mandatory for core resolution.
-- **Stateless API replicas:** shared external state allows requests to reach
-  either replica safely.
-- **Nginx as gateway:** one origin serves the UI and API while balancing requests
-  and shielding internal services.
-- **Separate Alembic migration job:** schema changes run once before replicas,
-  avoiding competing startup DDL.
-- **Prometheus and Grafana:** metrics make distribution, latency, and errors
-  measurable instead of inferred.
-- **Hash-based frontend navigation:** application routes cannot collide with
-  public `/{short_code}` paths.
-
 ## Known limitations
 
 - Docker Compose currently runs the stack on one host.
@@ -413,7 +383,3 @@ token revocation or refresh-token rotation, and multi-host orchestration.
 - [Architecture Report](docs/ARCHITECTURE.md) — topology, flows, decisions, and scalability.
 - [Technical Specification](docs/TECHNICAL_SPECIFICATION.md) — requirements, contracts, configuration, and acceptance criteria.
 - [Test Report](docs/TEST_REPORT.md) — execution evidence, measurements, traceability, and defects.
-
-## License
-
-Licensed under the [MIT License](LICENSE).

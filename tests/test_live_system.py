@@ -44,7 +44,7 @@ def test_health_and_instance_header(client):
 def test_frontend_is_served_at_root(client):
     response = client.get("/")
     assert response.status_code == 200
-    assert "Shortwave" in response.text
+    assert "LinkFlux" in response.text
     assert "/assets/" in response.text
 
 

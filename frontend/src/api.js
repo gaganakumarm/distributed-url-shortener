@@ -1,4 +1,4 @@
-const TOKEN_KEY = "shortwave_token";
+const TOKEN_KEY = "linkflux_token";
 
 export const auth = {
   get: () => localStorage.getItem(TOKEN_KEY),

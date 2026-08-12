@@ -27,7 +27,7 @@ function App() {
 }
 
 function Brand() {
-  return <div className="brand"><span className="brand-mark"><Zap size={19} fill="currentColor" /></span><span>shortwave</span></div>;
+  return <div className="brand"><span className="brand-mark"><Zap size={19} fill="currentColor" /></span><span>LinkFlux</span></div>;
 }
 
 function Landing({ navigate, token }) {
@@ -57,7 +57,7 @@ function AuthPage({ mode, onSuccess, navigate }) {
     try { const data = await api(`/api/auth/${register ? "register" : "login"}`, { method: "POST", body: JSON.stringify(form) }); onSuccess(data.access_token); }
     catch (err) { setError(err.message); } finally { setBusy(false); }
   };
-  return <main className="auth-page"><button className="back-brand" onClick={() => navigate("home")}><Brand/></button><section className="auth-card"><div className="eyebrow"><Zap size={14}/> {register ? "Join shortwave" : "Welcome back"}</div><h1>{register ? "Create your account" : "Sign in to your links"}</h1><p>{register ? "Start creating measurable links in seconds." : "Your links and analytics are waiting."}</p><form onSubmit={submit}><label>Email address<input type="email" required autoFocus value={form.email} onChange={(e) => setForm({...form, email:e.target.value})} placeholder="you@example.com"/></label><label>Password<input type="password" required minLength={register ? 8 : undefined} value={form.password} onChange={(e) => setForm({...form, password:e.target.value})} placeholder="At least 8 characters"/></label>{error && <div className="error">{error}</div>}<button className="btn primary full" disabled={busy}>{busy ? "Please wait…" : register ? "Create account" : "Sign in"}<ArrowRight size={18}/></button></form><div className="auth-switch">{register ? "Already have an account?" : "New to shortwave?"} <button onClick={() => navigate(register ? "login" : "register")}>{register ? "Sign in" : "Create account"}</button></div></section></main>;
+  return <main className="auth-page"><button className="back-brand" onClick={() => navigate("home")}><Brand/></button><section className="auth-card"><div className="eyebrow"><Zap size={14}/> {register ? "Join LinkFlux" : "Welcome back"}</div><h1>{register ? "Create your account" : "Sign in to your links"}</h1><p>{register ? "Start creating measurable links in seconds." : "Your links and analytics are waiting."}</p><form onSubmit={submit}><label>Email address<input type="email" required autoFocus value={form.email} onChange={(e) => setForm({...form, email:e.target.value})} placeholder="you@example.com"/></label><label>Password<input type="password" required minLength={register ? 8 : undefined} value={form.password} onChange={(e) => setForm({...form, password:e.target.value})} placeholder="At least 8 characters"/></label>{error && <div className="error">{error}</div>}<button className="btn primary full" disabled={busy}>{busy ? "Please wait…" : register ? "Create account" : "Sign in"}<ArrowRight size={18}/></button></form><div className="auth-switch">{register ? "Already have an account?" : "New to LinkFlux?"} <button onClick={() => navigate(register ? "login" : "register")}>{register ? "Sign in" : "Create account"}</button></div></section></main>;
 }
 
 function Dashboard({ navigate, logout }) {

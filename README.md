@@ -17,6 +17,20 @@ Nginx Load Balancer
                              +----> Redis
 ```
 
+## Project screenshots
+
+### Interactive API documentation
+
+![Swagger API documentation](docs/images/swagger-api.png)
+
+### Monitoring dashboard
+
+![Grafana dashboard showing traffic and latency](docs/images/grafana-dashboard.png)
+
+### Distributed services
+
+![Docker Compose services and health status](docs/images/docker-services.png)
+
 ## Features
 
 - Register/login with JWT

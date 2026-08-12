@@ -74,9 +74,6 @@ share PostgreSQL and Redis, so request processing remains stateless.
 
 ![Grafana dashboard showing traffic and latency](docs/images/grafana-dashboard.png)
 
-<details>
-<summary>Additional engineering screenshots</summary>
-
 ### Interactive API documentation
 
 ![Swagger API documentation](docs/images/swagger-api.png)
@@ -84,8 +81,6 @@ share PostgreSQL and Redis, so request processing remains stateless.
 ### Distributed services
 
 ![Docker Compose services and health status](docs/images/docker-services.png)
-
-</details>
 
 ## How LinkFlux works
 

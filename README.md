@@ -6,6 +6,7 @@ Detailed technical documentation:
 
 - [Architecture Report](docs/ARCHITECTURE.md)
 - [Technical Specification](docs/TECHNICAL_SPECIFICATION.md)
+- [Test Report](docs/TEST_REPORT.md)
 
 A portfolio-ready distributed URL shortener built with FastAPI, PostgreSQL, Redis, Nginx, Docker Compose, JWT authentication, analytics, caching, health checks, and multiple API instances. It includes a responsive React interface for account access, link creation, copying, analytics, deletion, and live infrastructure status.
 

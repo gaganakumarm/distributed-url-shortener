@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: pytest -q
+      - run: python -m compileall -q app tests
+      - run: docker compose config --quiet
+      - run: docker compose build
+
+  integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: cp .env.example .env
+      - run: pip install -r requirements.txt
+      - run: docker compose up -d --build --wait
+      - run: RUN_LIVE_TESTS=1 pytest tests/test_live_system.py -q
+      - if: always()
+        run: docker compose logs
+      - if: always()
+        run: docker compose down -v

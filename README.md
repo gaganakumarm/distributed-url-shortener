@@ -364,20 +364,6 @@ Configure them with `AUTH_RATE_LIMIT_PER_MINUTE`,
 - PostgreSQL, Redis, Nginx, Prometheus, and Grafana are single local instances.
 - The current localhost deployment uses HTTP and is not a public hosted service.
 
-## Future scaling
-
-At substantially higher traffic, analytics can be removed from the redirect
-critical path:
-
-```text
-Client → Nginx → FastAPI → Immediate redirect
-                         └→ Event queue → Analytics worker → Storage
-```
-
-Additional improvements could include pre-aggregated analytics, centralized
-structured logs, automated alerts, managed highly available PostgreSQL/Redis,
-token revocation or refresh-token rotation, and multi-host orchestration.
-
 ## Documentation
 
 - [Architecture Report](docs/ARCHITECTURE.md) — topology, flows, decisions, and scalability.
